@@ -5,14 +5,16 @@ def getDirname(date, mode):
     dirname = ''
 
     for c in mode:
-    	if c == '-':
-    		dirname += '-'
-    	elif c == 'y':
-    		dirname += str(date.year)
-    	elif c == 'm':
-    		dirname += str(date.month)
-    	elif c == 'd':
-    		dirname += str(date.day)
+        if c == '-':
+            dirname += '-'
+        elif c == '.':
+            dirname += '.'
+        elif c == 'y':
+            dirname += str(date.year)
+        elif c == 'm':
+            dirname += str(date.month)
+        elif c == 'd':
+            dirname += str(date.day)
 
     return dirname
 
@@ -25,16 +27,16 @@ directory = args.dir
 mode = args.mode
 
 # check if given mode is valid
-if not re.match('^[ymd-]+$', mode):
-	print('ERROR: {} is no supported mode!'.format(mode))
-	exit()
+if not re.match('^[ymd.-]+$', mode):
+    print('ERROR: {} is no supported mode!'.format(mode))
+    exit()
 
 extensions = ['.jpg', '.png']
 
 # iterate files in given directory
 for file in os.listdir(directory):
 
-	# get extension from file
+    # get extension from file
     ext = os.path.splitext(file)[1].lower()
 
     # process only image files

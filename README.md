@@ -10,7 +10,9 @@ where _MODE_ is a combination of the following possibilities:
 * _m_ for month
 * _d_ for day
 * _-_ as separator
+* _._ as separator
 
 See the following examples:
 * _y-m-d_ creates _2016-12-01_ or _1995-01-06_
 * _m-y_ creates _12-2016_ or _01-1995_
+* _d.m.y_ creates _01.12.2016_ or _06.01.1995_
